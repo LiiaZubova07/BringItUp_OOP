@@ -7,7 +7,7 @@ export default class Slider {
   }
 
   showSlides(n) {
-    if (n > this.stides.length) {
+    if (n > this.slides.length) {
       this.slideIndex = 1;
     }
     if (n < 1) {
