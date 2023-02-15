@@ -12,17 +12,19 @@ export default class Form {
   }
 
   clearInputs() {
-    this.inputs.forEach((input) => {
-      input.value = "";
+    this.inputs.forEach((item) => {
+      item.value = "";
     });
   }
 
   checkMailInputs() {
     let mailInputs = document.querySelectorAll('[type = "email"]');
+    let regEmail = (/[^a-z 0-9 @ \.]/gi);
+    
 
     mailInputs.forEach((input) => {
       input.addEventListener("keypress", function (e) {
-        if (e.key.match(/[^a-z 0-9 @ \.]/gi)) {
+        if (e.key.match(regEmail)) {
           e.preventDefault();
         }
       });
