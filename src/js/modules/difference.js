@@ -5,5 +5,20 @@ export default class Difference {
     this.items = items;
   }
 
-  
+  hideItems() {
+    this.oldOfficer.querySelectorAll(this.items).forEach((item, i, arr) => {
+      if (i !== arr.length - 1) {
+        item.style.display = "none";
+      }
+    });
+    this.newOfficer.querySelectorAll(this.items).forEach((item, i, arr) => {
+      if (i !== arr.length - 1) {
+        item.style.display = "none";
+      }
+    });
+  }
+
+  init(){
+    this.hideItems();
+  }
 }
