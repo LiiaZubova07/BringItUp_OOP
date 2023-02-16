@@ -51,28 +51,41 @@ export default class MainSlider extends Slider {
     this.showSlides((this.slideIndex += n));
   }
 
-  render() {
-    try {
-      try {
-        this.hanson = document.querySelector(".hanson");
-      } catch (error) {}
-
-      this.btns.forEach((item) => {
-        item.addEventListener("click", () => {
-          this.plusSlides(1);
-        });
-
-        item.parentNode.previousElementSibling.addEventListener(
-          "click",
-          (e) => {
-            e.preventDefault();
-            this.slideIndex = 1;
-            this.showSlides(this.slideIndex);
-          }
-        );
+  bindTriggers() {
+    this.btns.forEach((item) => {
+      item.addEventListener("click", () => {
+        this.plusSlides(1);
       });
 
-      this.showSlides(this.slideIndex);
-    } catch (error) {}
+      item.parentNode.previousElementSibling.addEventListener("click", (e) => {
+        e.preventDefault();
+        this.slideIndex = 1;
+        this.showSlides(this.slideIndex);
+      });
+    });
+
+    document.querySelectorAll(".prevmodule").forEach((item) => {
+      item.addEventListener("click", (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        this.plusSlides(-1);
+      });
+    });
+    document.querySelectorAll(".nextmodule").forEach((item) => {
+      item.addEventListener("click", (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        this.plusSlides(1);
+      });
+    });
   }
+
+  render() {
+    if (!this.container) {
+      return
+    }
+    this.hanson = document.querySelector(".hanson");
+      this.showSlides(this.slideIndex);
+      this.bindTriggers();
+      }
 }
