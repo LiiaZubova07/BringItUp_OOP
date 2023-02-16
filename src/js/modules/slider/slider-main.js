@@ -81,10 +81,11 @@ export default class MainSlider extends Slider {
   }
 
   render() {
-    if (this.container) {
-        this.hanson = document.querySelector(".hanson");
+    if (!this.container) {
+      return
+    }
+    this.hanson = document.querySelector(".hanson");
       this.showSlides(this.slideIndex);
       this.bindTriggers();
-    }
-  }
+      }
 }
