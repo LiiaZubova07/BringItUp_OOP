@@ -62,8 +62,8 @@ export default class VideoPlayer {
       const blockedElem = this.activeBtn.closest(".module__video-item").nextElementSibling;
       const playBtn = this.activeBtn.querySelector("svg").cloneNode(true);
 
-      if (state.data === 0) {
-        if (blockedElem.querySelector(".play__circle").classList.contains("closed")) {
+      if ((state.data === 0) && (blockedElem.querySelector(".play__circle").classList.contains("closed"))) {
+
           blockedElem.querySelector(".play__circle").classList.remove("closed");
           blockedElem.querySelector("svg").remove();
           blockedElem.querySelector(".play__circle").appendChild(playBtn);
