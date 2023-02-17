@@ -74,7 +74,7 @@ export default class VideoPlayer {
 
           //разблокировка элемента
           blockedElem.setAttribute("data-disabled", "false");
-        }
+        
       }
     } catch (error) {}
   }
