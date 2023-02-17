@@ -8,8 +8,8 @@ export default class ShowInfo {
       btn.addEventListener("click", () => {
         const sibling = btn.closest(".module__info-show").nextElementSibling;
 
-        sibling.classList.toggle('msg')
-        sibling.style.marginTop='20px';
+        sibling.classList.toggle("msg");
+        sibling.style.marginTop = "20px";
       });
     });
   }
